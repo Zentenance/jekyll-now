@@ -6,7 +6,7 @@
 name: Seyoung Jeong
 
 # Short bio or description (displayed in the header)
-description: Hi, I', Seyoung Jeong, Software Enginerring at Qualcomm.
+description: Hi, I'm Seyoung Jeong, Software Enginerring at Qualcomm. I have been working on WiFi FW, 11ad after joining Qualcomm
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
@@ -18,7 +18,7 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: seyoungjeong@gmail.com
   facebook:
   flickr:
   github: barryclark/jekyll-now
