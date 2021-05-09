@@ -13,7 +13,7 @@ I got asked this questions already two times during screening interview with FAN
 ## Structure
 It can be implemented using a linked list or an array. The diagram below is the ring buffer with size 4 using array. The four variables got involved in working with the ring buffer. They are **capacity**, **length**, **read index** and **write index**.
   
-![](/Ring_buffer_in_C/Blank%20Diagram%201%20Page%201.png)
+![](/images/Ring_buffer_in_C/Blank%20Diagram%201%20Page%201.png)
 
 * **capacity**: capacity of ring buffers. Here it is 4.
 * **length**: length of the buffers holding datas. Here it is 2
@@ -61,7 +61,7 @@ We update four variables in cases;
 
 Now tricky part comes up. How do we do `memcpy()` the data, and update **read** and **write** index, when the data need to be copied  all the way to end of the ring and continue to be copied from the beginning. This is the case with calling `enqueue(&myqueue, data,  3)` when the ring buffer is holding the data in the picture below.
 
-![](/Ring_buffer_in_C/Blank%20Diagram%202%20Page%202.png)
+![](/images/Ring_buffer_in_C/Blank%20Diagram%202%20Page%202.png)
 
 Here is my two cents.
 
