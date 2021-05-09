@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 08 May 2021 21:25:47 -0700</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ring_buffer</title>
+      <title>Ring buffer in C</title>
       <link>http://example.org/posts/ring_buffer/</link>
       <pubDate>Sat, 08 May 2021 21:25:47 -0700</pubDate>
       
