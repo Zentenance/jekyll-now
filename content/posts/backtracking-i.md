@@ -16,7 +16,7 @@ This is basic question which we can apply backtracking. Here is the LeetCode que
 
 ([Subsets - LeetCode](https://leetcode.com/problems/subsets/) Given an nteger array of **unique** numbers, find all possible unduplicated subsets. For example, with `nums = [1,2,3]`, the unduplicated subsets are `[], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]`
 
-![](backtracking-i/9684023D-622F-480D-B0C7-618992397540.jpg)
+![](/images/backtracking-i/9684023D-622F-480D-B0C7-618992397540.jpg)
 
 C++ implementation of the algorithm is the below. The `res` is the integer array to hold the result. The time complexity of the implementation is `N x pow(2, N)` because each element could be present or absent.
 ```c
@@ -37,7 +37,7 @@ vector<int> res;
 ## Subsets with duplicates
 [Subsets II - LeetCode](https://leetcode.com/problems/subsets-ii/) - Given the integer array that may contain duplicates, find all possible subsets. The result must not contain duplicate subsets.
 
-![](backtracking-i/EA54CA73-4B74-4114-BDAE-2CAE6803B3E6.jpg)
+![](images/backtracking-i/EA54CA73-4B74-4114-BDAE-2CAE6803B3E6.jpg)
 
 The key idea to remove the duplicates is we skips already visited elements using the condition;
 ```
@@ -111,4 +111,4 @@ vector<int> used(nums.size(), 0);
 ```
 
 
-![](backtracking-i/DBB2053C-F802-41D3-AF74-C5180D28C994.jpg)
+![](/images/backtracking-i/DBB2053C-F802-41D3-AF74-C5180D28C994.jpg)
