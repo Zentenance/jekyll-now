@@ -67,7 +67,7 @@ Here is my two cents.
 > When the problem looks complicating to tackle down, don’t panic.   
 > Divide it to small sub problems you are familiar with.  
  
-We just need to do `memcpy()` two times, one for the data till the end and second one for the data from the beginning wile carefully updating the **write** index, and source and target pointers for `memcpy()`. Let’s do this.
+We just need to do `memcpy()` two times, first one for the data till the end of the queue and second one for the data from the beginning wile carefully updating the **write** index, and source and target pointers for `memcpy()`. Let’s do this.
 
 ```c
 // first copy till the end
