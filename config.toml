@@ -1,4 +1,18 @@
 baseURL = "https://seyoungjeong.github.io/"
 languageCode = "en-us"
-title = "Seyoung Jeong"
+title = "Home"
 theme = "ananke"
+
+[params]
+show_reading_time = true
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 30
+
+[[menu.main]]
+name = "About"
+url = "/About"
+weight = 30
+

@@ -2,6 +2,7 @@
 title: "Ring buffer in C"
 date: 2021-05-08
 draft: false
+tags: ['Embedded Software', 'C/C++']
 ---
 
 ## Overview

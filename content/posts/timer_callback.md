@@ -2,6 +2,7 @@
 title: "Timer Callback"
 date: 2021-05-09
 draft: false
+tags: ['Embedded Software', 'C/C++']
 ---
 
 This is an interview question for embedded software engineer. 
