@@ -5,8 +5,6 @@ draft: false
 tags: ['Embedded Software', 'Windows', 'Device Driver']
 ---
 
-# PCIe Configuration space in Windows driver’s point of view
-
 ## What is PCIe?
 PCI Express, technically Peripheral Component Interconnect Express is a standard type of connection for internal devices in a computer. 
 
