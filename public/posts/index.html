@@ -105,13 +105,16 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://seyoungjeong.github.io/posts/ring_buffer_in_c/" class="link black dim">
-        Ring buffer in C
+      <a href="https://seyoungjeong.github.io/posts/timer_callback/" class="link black dim">
+        Timer Callback
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Overview  Implement a ring buffer in C.
- I got asked this questions already two times during screening interview with FANNG and failed two times. The ring buffer structure is also known as a circular queue. The different names come from two different usages. In embedded systems, in order to receive and send data to a peripheral device such as UART, a ring buffer is common to cache the data.
+      This is an interview question for embedded software engineer.
+ ISR gets called with a certain unsigned integer value every 1ms.
+Write the ISR callback to return average of values during 1 sec
+ The timer callback gets invoked from ISR.
+First of all we need to calculate the average as fast as possible because this is called in ISR context. Instead of calculating sum of 1000 values during past 1 sec every time, we can cache the previous sum to calculate the average.
     </div>
   </div>
 </div>
@@ -121,15 +124,13 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://seyoungjeong.github.io/posts/timer_callback/" class="link black dim">
-        
+      <a href="https://seyoungjeong.github.io/posts/ring_buffer_in_c/" class="link black dim">
+        Ring buffer in C
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Timer Callback  ISR gets called with a certain unsigned integer value every 1ms.
-Write ISR callback to return average of values during 1 sec
- Yeah ISR doesn’t take a parameter in real world. This is an interview question for embedded software engineer.
-First of all we need to calculate the average as fast as possible because this is in ISR. Instead of calculating sum of 1000 values during past 1 sec every time, we can cache the previous sum to calculate the average.
+      Overview  Implement a ring buffer in C.
+ I got asked this questions already two times during screening interview with FANNG and failed two times. The ring buffer structure is also known as a circular queue. The different names come from two different usages. In embedded systems, in order to receive and send data to a peripheral device such as UART, a ring buffer is common to cache the data.
     </div>
   </div>
 </div>

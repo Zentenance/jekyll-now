@@ -24,7 +24,7 @@ unsigned int sum = 0;
 unsigned int count = 0;
 bool ready = false;
 
-void fake_isr(unsigned int val) {
+void timer_callback(unsigned int val) {
 	
 	sum -= value[count];
 	sum += val;
