@@ -22,7 +22,7 @@ First of all we need to calculate the average as fast as possible because this i
 <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
 <span style=color:#66d9ef>bool</span> ready <span style=color:#f92672>=</span> false;
 
-<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>fake_isr</span>(<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> val) {
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>timer_callback</span>(<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> val) {
 	
 	sum <span style=color:#f92672>-=</span> value[count];
 	sum <span style=color:#f92672>+=</span> val;
