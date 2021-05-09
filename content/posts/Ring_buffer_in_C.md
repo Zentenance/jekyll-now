@@ -47,7 +47,7 @@ int init_queue(struct Queue *q, size_t capacity) {
 	q->buf = (char*)malloc(capacity);
 	if (!q->buf) return -1;
 	q->capacity = capacity;
-	q->len = q->read = q->write = 0;
+	q->length = q->read = q->write = 0;
 	return 0;
 }
 ```
@@ -80,7 +80,7 @@ if (len > len_to_end)
 
 // update the write index and length of ring buffer
 write = (write + len) % q->capacity;
-q->len += len;  
+q->length += len;  
 ```
 
 This is it. To address the case to read circle around from the ring buffer, we implement the similar logic in `dequeue()`.
