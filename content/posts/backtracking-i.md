@@ -37,7 +37,7 @@ vector<int> res;
 ## Subsets with duplicates
 [Subsets II - LeetCode](https://leetcode.com/problems/subsets-ii/) - Given the integer array that may contain duplicates, find all possible subsets. The result must not contain duplicate subsets.
 
-![](images/backtracking-i/EA54CA73-4B74-4114-BDAE-2CAE6803B3E6.jpg)
+![](/images/backtracking-i/EA54CA73-4B74-4114-BDAE-2CAE6803B3E6.jpg)
 
 The key idea to remove the duplicates is we skips already visited elements using the condition;
 ```
