@@ -1,8 +1,168 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Debug Logs of a Software Engineer | Home</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="- Seyoung Jeong"><meta name=generator content="Hugo 0.83.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel=stylesheet href=/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css><link href=/index.xml rel=alternate type=application/rss+xml title=Home><link href=/index.xml rel=feed type=application/rss+xml title=Home><meta property="og:title" content="Debug Logs of a Software Engineer"><meta property="og:description" content="- Seyoung Jeong"><meta property="og:type" content="website"><meta property="og:url" content="https://seyoungjeong.github.io/"><meta itemprop=name content="Debug Logs of a Software Engineer"><meta itemprop=description content="- Seyoung Jeong"><meta name=twitter:card content="summary"><meta name=twitter:title content="Debug Logs of a Software Engineer"><meta name=twitter:description content="- Seyoung Jeong"></head><body class="ma0 avenir bg-near-white"><header><div class="pb3-m pb6-l bg-black"><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">Home</a><div class="flex-l items-center"><ul class="pl0 mr3"><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white no-underline white-90" href=/about title="About page">About</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white no-underline white-90" href=/tags title="Tags page">Tags</a></li></ul></div></div></nav><div class="tc-l pv3 ph3 ph4-ns"><h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">Debug Logs of a Software Engineer</h1><h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">- Seyoung Jeong</h2></div></div></header><main class=pb7 role=main><article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></article><div class="pa3 pa4-ns w-100 w-70-ns center"><h1 class=flex-none>Recent Posts</h1><section class="w-100 mw8"><div class="relative w-100 mb4"><article class="bb b--black-10"><div class="db pv4 ph3 ph0-l no-underline dark-gray"><div class="flex flex-column flex-row-ns"><div class="blah w-100"><h1 class="f3 fw1 athelas mt0 lh-title"><a href=https://seyoungjeong.github.io/posts/backtracking-i/ class="color-inherit dim link">Backtracking I</a></h1><div class="f6 f5-l lh-copy nested-copy-line-height nested-links">Backtracking is a general algorithm for finding all (or some) solutions to some computational problems, I will summarize general approach to backtracking questions with popular examples.
-The backtracking algorithm traverses this search tree recursively , from the root down, in depth-first order . At each node c, the algorithm checks whether c can be completed to a valid solution. If it cannot, the whole sub-tree rooted at c is skipped (pruned).</div><a href=https://seyoungjeong.github.io/posts/backtracking-i/ class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a></div></div></div></article></div><div class="relative w-100 mb4"><article class="bb b--black-10"><div class="db pv4 ph3 ph0-l no-underline dark-gray"><div class="flex flex-column flex-row-ns"><div class="blah w-100"><h1 class="f3 fw1 athelas mt0 lh-title"><a href=https://seyoungjeong.github.io/posts/timer_callback/ class="color-inherit dim link">Timer Callback</a></h1><div class="f6 f5-l lh-copy nested-copy-line-height nested-links">This is an interview question for embedded software engineer.
-ISR gets called with a certain unsigned integer value every 1ms.
-Write the ISR callback to return average of values during 1 sec
-The timer callback gets invoked from ISR.
-First of all we need to calculate the average as fast as possible because this is called in ISR context. Instead of calculating sum of 1000 values during past 1 sec every time, we can cache the previous sum to calculate the average.</div><a href=https://seyoungjeong.github.io/posts/timer_callback/ class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a></div></div></div></article></div><div class="relative w-100 mb4"><article class="bb b--black-10"><div class="db pv4 ph3 ph0-l no-underline dark-gray"><div class="flex flex-column flex-row-ns"><div class="blah w-100"><h1 class="f3 fw1 athelas mt0 lh-title"><a href=https://seyoungjeong.github.io/posts/pcie-configuration-space-in-windows-drivers-point-of-view/ class="color-inherit dim link">PCIe Configuration space in Windows driver’s point of view</a></h1><div class="f6 f5-l lh-copy nested-copy-line-height nested-links">What is PCIe? PCI Express, technically Peripheral Component Interconnect Express is a standard type of connection for internal devices in a computer.
-Synchronous Transaction / Burst Orientated Bus Mastering Plug and Play Debug PCIe using WinDbg PCI Type 0 Configuration Space Header The !pci extension displays the current status of the peripheral component interconnect (PCI) buses, as well as any devices attached to those buses.
-!pci [Flags [Segment] [Bus [Device [Function [MinAddress MaxAddress]]]]] For example, when flags is 301, it means;</div><a href=https://seyoungjeong.github.io/posts/pcie-configuration-space-in-windows-drivers-point-of-view/ class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a></div></div></div></article></div></section><section class=w-100><h1 class=f3>More</h1><h2 class="f5 fw4 mb4 dib mr3"><a href=https://seyoungjeong.github.io/posts/ring_buffer_in_c/ class="link black dim">Ring buffer in C</a></h2><a href=https://seyoungjeong.github.io/posts/ class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a></section></div></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://seyoungjeong.github.io/>&copy; Home 2021</a><div></div></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://example.com/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#commands" class="nav-link">Commands</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
+<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
+<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
+<li><code>mkdocs build</code> - Build the documentation site.</li>
+<li><code>mkdocs -h</code> - Print help message and exit.</li>
+</ul>
+<h2 id="project-layout">Project layout</h2>
+<pre><code>mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.2.1
+Build Date UTC : 2021-06-26 12:49:59.665335+00:00
+-->
