@@ -1,0 +1,17 @@
+site_name: Seyoung's Debug Log
+site_url: https://seyoungjeong.github.io/
+nav:
+    - Home: 'index.md'
+    - Technically: 'tech.md'
+    - '읽고 본 것 들, 여행': 'feel.md' 
+    - Seattle: 
+        - 'Hiking Trails': 'seattle_hiking.md'
+        - 'Ski': 'seattle_ski.md'
+    - NYC: 'nyc.md'
+    - 'About me': 'about.md'
+
+theme:
+    name: mkdocs
+    nav_style: dark
+    titles_only: True
+
