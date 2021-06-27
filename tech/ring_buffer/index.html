@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://seyoungjeong.github.io/tech/ring_buffer/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Ring buffer in C - Seyoung's Debug Log</title>
+        <title>Ring buffer - Seyoung's Debug Log</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -87,12 +87,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#ring-buffer-in-c" class="nav-link">Ring buffer in C</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#interview-embeddedsystem-blog" class="nav-link">interview #embeddedsystem #blog</a>
+            <li class="nav-item" data-level="1"><a href="#ring-buffer" class="nav-link">Ring buffer</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
@@ -117,13 +112,12 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="ring-buffer-in-c">Ring buffer in C</h1>
-<h1 id="interview-embeddedsystem-blog">interview #embeddedsystem #blog</h1>
+<h1 id="ring-buffer">Ring buffer</h1>
 <h2 id="overview">Overview</h2>
 <blockquote>
 <p>Implement a ring buffer in C.   </p>
 </blockquote>
-<p>I got asked this questions already two times during screening interview with FANNG and failed two times. The ring buffer structure is also known as a circular queue. The different names come from two different usages. In embedded systems, in order to receive and send data to a peripheral device such as UART, a ring buffer is common to cache the data. The same structure is used for a certain RTOS to send and receive an event and dad between tasks.</p>
+<p>The ring buffer structure is also known as a circular queue. The different names come from two different usages. In embedded systems, in order to receive and send data to a peripheral device such as UART, a ring buffer is common to cache the data. The same structure is used for a certain RTOS to send and receive an event and dad between tasks.</p>
 <h2 id="structure">Structure</h2>
 <p>It can be implemented using a linked list or an array. The diagram below is the ring buffer with size 4 using array. The four variables got involved in working with the ring buffer. They are <strong>capacity</strong>, <strong>length</strong>, <strong>read index</strong> and <strong>write index</strong>.</p>
 <p><img alt="" src="Blank%20Diagram%201%20Page%201.png" /></p>
@@ -204,7 +198,8 @@ static size_t get_empty_buffers_length(struct Queue *q) {
 </code></pre>
 <h2 id="summary-and-dicussion">Summary and dicussion</h2>
 <p>We implemented a ring buffer using four variables. Actually we don’t need all of <strong>write</strong>, <strong>read</strong> and <strong>length</strong> to implement the ring buffer. For example with <strong>read</strong> and <strong>length</strong>, we can come up with <strong>write</strong> index. With <strong>write</strong> and <strong>read</strong> we can calculate the <strong>length</strong> of ring buffer. </p>
-<p>Because <strong>length</strong> is referenced by <code>enqueue()</code> and <code>dequeue()</code> , mutex is required to allow multithreads to access the ring buffer. By removing <strong>length</strong> and having <strong>write</strong> and <strong>read</strong> only , we can possibly have lock-free implementation. For lock-free implementation details, Juho wrote a nice blog post - <a href="https://www.snellman.net/blog/archive/2016-12-13-ring-buffers/">I’ve been writing ring buffers wrong all these years</a>. </p></div>
+<p>Because <strong>length</strong> is referenced by <code>enqueue()</code> and <code>dequeue()</code> , mutex is required to allow multithreads to access the ring buffer. By removing <strong>length</strong> and having <strong>write</strong> and <strong>read</strong> only , we can possibly have lock-free implementation. For lock-free implementation details, Juho wrote a nice blog post - <a href="https://www.snellman.net/blog/archive/2016-12-13-ring-buffers/">I’ve been writing ring buffers wrong all these years</a>. </p>
+<p><em>Copyright © Seyoung Jeong, All right reserved</em></p></div>
             </div>
         </div>
 
