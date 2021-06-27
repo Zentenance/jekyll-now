@@ -11,12 +11,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://seyoungjeong.github.io/nyc/</loc>
+         <lastmod>2021-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://seyoungjeong.github.io/seattle_hiking/</loc>
          <lastmod>2021-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://seyoungjeong.github.io/seattle_ski/</loc>
+         <lastmod>2021-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://seyoungjeong.github.io/tech/</loc>
          <lastmod>2021-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
