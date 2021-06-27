@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://seyoungjeong.github.io/tech/ring_buffer/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Ring buffer in C - Seyoung's Debug Log</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Seyoung's Debug Log</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../" class="nav-link">Technically</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../feel/" class="nav-link">읽고 본 것 들, 여행</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Seattle <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../seattle_hiking/" class="dropdown-item">Hiking Trails</a>
+</li>
+                                    
+<li>
+    <a href="../../seattle_ski/" class="dropdown-item">Ski</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../nyc/" class="nav-link">NYC</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../about/" class="nav-link">About me</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ring-buffer-in-c" class="nav-link">Ring buffer in C</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#interview-embeddedsystem-blog" class="nav-link">interview #embeddedsystem #blog</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#structure" class="nav-link">Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#implementation" class="nav-link">Implementation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#summary-and-dicussion" class="nav-link">Summary and dicussion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ring-buffer-in-c">Ring buffer in C</h1>
+<h1 id="interview-embeddedsystem-blog">interview #embeddedsystem #blog</h1>
+<h2 id="overview">Overview</h2>
+<blockquote>
+<p>Implement a ring buffer in C.   </p>
+</blockquote>
+<p>I got asked this questions already two times during screening interview with FANNG and failed two times. The ring buffer structure is also known as a circular queue. The different names come from two different usages. In embedded systems, in order to receive and send data to a peripheral device such as UART, a ring buffer is common to cache the data. The same structure is used for a certain RTOS to send and receive an event and dad between tasks.</p>
+<h2 id="structure">Structure</h2>
+<p>It can be implemented using a linked list or an array. The diagram below is the ring buffer with size 4 using array. The four variables got involved in working with the ring buffer. They are <strong>capacity</strong>, <strong>length</strong>, <strong>read index</strong> and <strong>write index</strong>.</p>
+<p><img alt="" src="Blank%20Diagram%201%20Page%201.png" /></p>
+<ul>
+<li><strong>capacity</strong>: capacity of ring buffers. Here it is 4.</li>
+<li><strong>length</strong>: length of the buffers holding datas. Here it is 2</li>
+<li><strong>read index</strong>: point to the start buffer to read</li>
+<li><strong>write index</strong>: point to the start buffer to write</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<p>This is the <code>struct Queue</code> written in C.</p>
+<pre><code class="language-c">struct Queue {
+    char *buf;
+
+    size_t capacity;
+    size_t length;
+    size_t read;
+    size_t write;
+};
+
+int init_queue(struct Queue *q, size_t capacity);
+int enqueue(strcut Queue *q, char *data, size_t len);
+int dequeue(struct Queue *q, char *data, size_t len);
+
+int main() {
+    Queue myqueue;
+    assert(0 == init_queue(&amp;myqueue, 4);
+
+    return 0;
+}
+
+int init_queue(struct Queue *q, size_t capacity) {
+    q-&gt;buf = (char*)malloc(capacity);
+    if (!q-&gt;buf) return -1;
+    q-&gt;capacity = capacity;
+    q-&gt;len = q-&gt;read = q-&gt;write = 0;
+    return 0;
+}
+</code></pre>
+<p>We update four variables in cases;
+1. When <code>init_queue</code> gets called, we update the <strong>capacity</strong> as total allocated buffer size.
+2. In <code>enqueue()</code> , we do <code>memcpy()</code> the buffer to the data and update <strong>read</strong> index to <code>read += len</code>
+3. In <code>dequeue()</code> , we do <code>memcpy()</code> the data to the buffer and update <strong>write</strong> index to <code>write += len</code>
+4. In case 3 and 4, we update the <strong>length</strong> to <code>length += len</code> and <code>length -= len</code> respectively. </p>
+<p>Now tricky part comes up. How do we do <code>memcpy()</code> the data, and update <strong>read</strong> and <strong>write</strong> index, when the data need to be copied  all the way to end of the ring and continue to be copied from the beginning. This is the case with calling <code>enqueue(&amp;myqueue, data,  3)</code> when the ring buffer is holding the data in the picture below.</p>
+<p><img alt="" src="Blank%20Diagram%202%20Page%202.png" /></p>
+<p>Here is my two cents.</p>
+<blockquote>
+<p>When the problem looks complicating to tackle down, don’t panic. <br />
+Divide it to small sub problems you are familiar with.  </p>
+</blockquote>
+<p>We just need to do <code>memcpy()</code> two times, one for the data till the end and second one for the data from the beginning wile carefully updating the <strong>write</strong> index, and source and target pointers for <code>memcpy()</code>. Let’s do this.</p>
+<pre><code class="language-c">// first copy till the end
+size_t len_to_end = MIN(len, q-&gt;capacity - q-&gt;write);
+memcpy(q-&gt;buf + write, data, len_to_end);
+
+// second copy from the begining of the buf with the remainings
+if (len &gt; len_to_end)
+    memcpy(q-&gt;buf, data + len_to_end, len - len_to_end);
+
+// update the write index and length of ring buffer
+write = (write + len) % q-&gt;capacity;
+q-&gt;len += len;  
+</code></pre>
+<p>This is it. To address the case to read circle around from the ring buffer, we implement the similar logic in <code>dequeue()</code>.</p>
+<p>Before wrapping up, the last thing nice to have is helper functions below.</p>
+<pre><code class="language-c">static bool is_full(struct Queue *q) {
+    return q-&gt;capacity == q-&gt;length;
+}
+
+static bool is_empty(struct Queue *q) {
+    return q-&gt;read == q-&gt;write;
+}
+
+static size_t get_empty_buffers_length(struct Queue *q) {
+    return q-&gt;capacity - q-&gt;length;
+}
+</code></pre>
+<h2 id="summary-and-dicussion">Summary and dicussion</h2>
+<p>We implemented a ring buffer using four variables. Actually we don’t need all of <strong>write</strong>, <strong>read</strong> and <strong>length</strong> to implement the ring buffer. For example with <strong>read</strong> and <strong>length</strong>, we can come up with <strong>write</strong> index. With <strong>write</strong> and <strong>read</strong> we can calculate the <strong>length</strong> of ring buffer. </p>
+<p>Because <strong>length</strong> is referenced by <code>enqueue()</code> and <code>dequeue()</code> , mutex is required to allow multithreads to access the ring buffer. By removing <strong>length</strong> and having <strong>write</strong> and <strong>read</strong> only , we can possibly have lock-free implementation. For lock-free implementation details, Juho wrote a nice blog post - <a href="https://www.snellman.net/blog/archive/2016-12-13-ring-buffers/">I’ve been writing ring buffers wrong all these years</a>. </p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
