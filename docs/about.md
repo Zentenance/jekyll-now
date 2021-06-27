@@ -11,4 +11,5 @@ Slef-motivated software engineer. I like skiing, hiking and inline skating when 
 * Microsoft, Redmond, 2018 - 2019
 * Qualcomm, San Diego, 2008 - 2018
 
-LinkedIn: [https://www.linkedin.com/in/seyoung/](https://www.linkedin.com/in/seyoung/)
+LinkedIn: <https://www.linkedin.com/in/seyoung/> <br>
+Eamil: <seyoungjeong@gmail.com>
